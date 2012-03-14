@@ -10,6 +10,8 @@ scalaVersion := "2.9.1"
 
 sbtPlugin := true 
 
+//no mean
+
 javacOptions ++= Seq("-encoding", "UTF-8")
 
 libraryDependencies +=  "junit"                 %   "junit"             % "4.10"    % "test"
