@@ -10,6 +10,7 @@ import Keys._
 object RdfDevCore extends Plugin {
 	override val settings : Seq[Setting[_]] = Seq(
 		javacOptions 		++= Seq("-encoding", "UTF-8"),
+		resolvers += "Rough Diamond Framework Repository" at "http://133.242.22.208/repos/"
 		libraryDependencies ++= Seq(
 			 "com.novocode"		% "junit-interface"			% "0.8"	% "test -> default"
 			,"eu.henkelmann" 	% "junit_xml_listener" 		% "0.3" % "test"
