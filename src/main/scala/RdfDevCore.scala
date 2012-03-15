@@ -18,10 +18,11 @@ object RdfDevCore extends Plugin {
 		))
 		
 		def doInit(baseDir:File) = { 
-			println("doInit!")
 			val f1 = new File(baseDir, PROJECT_SBT)
+			println("updating..." + f1.getName())
 			writeStringToFile(f1, projectContext)
 			val f2 = new File(baseDir, PLUGIN_SBT)
+			println("updating..." + f2.getName())
 			writeStringToFile(f2, pluginContext)
 		}
 		
@@ -33,10 +34,9 @@ object RdfDevCore extends Plugin {
 		}
 	}
 	
-	println("zzz");
 	override val settings : Seq[Setting[_]] = Seq(
 		javacOptions 	++= Seq("-encoding", "UTF-8")
-		,resolvers 		+= "Rough Diamond Framework Repository" at "http://133.242.22.208/repos/"
+		,resolvers 		+= Resolver.url("Rough Diamond Framework Repository", url("http://133.242.22.208/repos/"))(Resolver.ivyStylePatterns)
 	)
 
 	val projectContext = 
