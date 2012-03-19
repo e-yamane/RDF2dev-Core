@@ -5,11 +5,11 @@ import java.io.File
 import org.apache.commons.io.FileUtils._
 
 class RdfDevCoreSpec extends Spec {
-	val testDir = new File("testDir")
-	deleteQuietly(testDir)
-	testDir.mkdir()
-	RdfDevCore.rdf.doInit(testDir)
 	describe("initを実行すると") {
+		val testDir = new File("testDir")
+		deleteQuietly(testDir)
+		testDir.mkdir()
+		RdfDevCore.doInit(testDir)
 		it("指定したディレクトリ直下にrdf.sbtが作成されていないといけない") {
 			 assert(new File(testDir, RdfDevCore.PROJECT_SBT).exists())
 		}
